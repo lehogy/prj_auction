@@ -57,3 +57,10 @@ function feed_box() {
         }
     });
 }
+
+function new_comment() {
+    $('#comment-cards').empty()
+    function sort_field(field_name) {
+        return (a, b) => a[field_name] > b[field_name] ? -1 : 1;
+    }
+    let rows = doc.sort(sort_field("time"))}
