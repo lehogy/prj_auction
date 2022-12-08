@@ -1,7 +1,9 @@
+// 페이지 시작은 전체 보기
 $(document).ready(function (){
     feed_box()
 });
 
+// 전체 카테고리 보기
 function feed_box() {
     $.ajax({
         type: 'GET',
@@ -58,7 +60,7 @@ function feed_box() {
         }
     });
 }
-
+// IT 카테고리 보기
 function feed_box_it() {
     $.ajax({
         type: 'GET',
@@ -115,7 +117,7 @@ function feed_box_it() {
         }
     });
 }
-
+// electron 카테고리 보기
 function feed_box_electron() {
     $.ajax({
         type: 'GET',
@@ -172,7 +174,7 @@ function feed_box_electron() {
         }
     });
 }
-
+// life 카테고리 보기
 function feed_box_life() {
     $.ajax({
         type: 'GET',
@@ -229,10 +231,15 @@ function feed_box_life() {
         }
     });
 }
-// 최신 피드 정렬 관련 작업 중
-// function new_comment() {
-//     $('#comment-cards').empty()
-//     function sort_field(field_name) {
-//         return (a, b) => a[field_name] > b[field_name] ? -1 : 1;
-//     }
-//     let rows = doc.sort(sort_field("time"))}
+
+// 피드 쓰기 POST
+function write_feed() {
+    $.ajax({
+        type: 'POST',
+        url: '/#',
+        data: {},
+        success: function (response) {
+
+        }
+    });
+}
