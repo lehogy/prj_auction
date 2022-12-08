@@ -2,6 +2,8 @@ from flask import Flask, session, render_template, redirect, request, url_for, j
 
 import pymysql, hashlib, ctypes
 
+from time import sleep
+
 # DB 연결
 db = pymysql.connect(host="localhost", user="root", password="nkhg3395!", charset="utf8")  # 기본 양식
 cursor = db.cursor(pymysql.cursors.DictCursor)  # 테이블명까지 보여줌
@@ -24,7 +26,11 @@ def login_proc():
         userPw = request.form['pwIn']
 
         if len(userId) == 0 or len(userPw) == 0:
-            return 'ID, PW를 입력하세요.'
+            sleep(0)
+            MS_SYSTEMMODAL = 0x00001000
+            ctypes.windll.user32.MessageBoxW(0, "아이디 및 패스워드를 입력해주세요.", "알림", MS_SYSTEMMODAL)
+            return redirect(url_for('login_proc'))
+
         else:
             sql = "SELECT * FROM sign_up"
             cursor.execute(sql)
@@ -34,6 +40,11 @@ def login_proc():
                 if userId == row['user_id'] and hashlib.sha256(userPw.encode()).hexdigest() == row['password']:
                     session['userId'] = userId
                     return redirect(url_for('main'))
+                elif userId != row['user_id'] and hashlib.sha256(userPw.encode()).hexdigest() != row['password']:
+                    sleep(0)
+                    MB_SYSTEMMODAL = 0x00001000
+                    ctypes.windll.user32.MessageBoxW(0, "아이디 및 패스워드가 틀렸습니다.", "알림", MB_SYSTEMMODAL)
+                    return redirect(url_for('login_proc'))
 
     return render_template('login_page/login_page.html')
 
@@ -55,8 +66,22 @@ def register():
         pw = request.form['psw']
         pwr = request.form['psw-repeat']
 
+        sql = "SELECT user_id FROM sign_up"
+        cursor.execute(sql)
+        id_data = cursor.fetchall()
+
+        for idta in id_data:
+
+            if myid == idta['user_id']:
+                sleep(0)
+                MS_SYSTEMMODAL = 0x00001000
+                ctypes.windll.user32.MessageBoxW(0, "ID 중복 검사를 해주세요.", "알림", MS_SYSTEMMODAL)
+                return redirect(url_for('register'))
+
         if pw != pwr:
-            ctypes.windll.user32.MessageBoxW(0, "비밀번호를 제대로 확인하세요.", "알림", 0)
+            sleep(0)
+            MB_SYSTEMMODAL = 0x00001000
+            ctypes.windll.user32.MessageBoxW(0, "비밀번호가 일치하지 않습니다.", "알림", MB_SYSTEMMODAL)
             return redirect(url_for('register'))
 
         else:
@@ -76,7 +101,9 @@ def register():
 
             db.commit()
 
-            print("END")
+            sleep(0)
+            MB_SYSTEMMODAL = 0x00001000
+            ctypes.windll.user32.MessageBoxW(0, "회원가입 완료", "알림", MB_SYSTEMMODAL)
 
         return redirect(url_for('login_proc'))
 
