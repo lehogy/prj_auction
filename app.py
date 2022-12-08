@@ -135,14 +135,35 @@ def main():
     else:
         return jsonify("Who are you?")
 
-
+# 메인페이지 feed
 @app.route('/main/feed', methods=['GET'])
 def feed_box_get():
     sql = "SELECT * FROM feed"
     cursor.execute(sql)
     data = cursor.fetchall()
-    print(data)
     return jsonify({'feeds': data})
+
+@app.route('/main/IT', methods=['GET'])
+def feed_box_it_get():
+    sql = "SELECT * FROM feed WHERE category = 'it'"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    return jsonify({'feeds': data})
+
+@app.route('/main/electron', methods=['GET'])
+def feed_box_electron_get():
+    sql = "SELECT * FROM feed WHERE category = 'electron'"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    return jsonify({'feeds': data})
+
+@app.route('/main/life', methods=['GET'])
+def feed_box_life_get():
+    sql = "SELECT * FROM feed WHERE category = 'life'"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    return jsonify({'feeds': data})
+
 
 
 # # IT 페이지
