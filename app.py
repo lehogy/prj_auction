@@ -35,16 +35,18 @@ def login_proc():
             sql = "SELECT * FROM sign_up"
             cursor.execute(sql)
             rows = cursor.fetchall()
+
             for row in rows:
                 print(row)
                 if userId == row['user_id'] and hashlib.sha256(userPw.encode()).hexdigest() == row['password']:
                     session['userId'] = userId
                     return redirect(url_for('main'))
-                elif userId != row['user_id'] and hashlib.sha256(userPw.encode()).hexdigest() != row['password']:
-                    sleep(0)
-                    MB_SYSTEMMODAL = 0x00001000
-                    ctypes.windll.user32.MessageBoxW(0, "아이디 및 패스워드가 틀렸습니다.", "알림", MB_SYSTEMMODAL)
-                    return redirect(url_for('login_proc'))
+
+            sleep(0)
+            MB_SYSTEMMODAL = 0x00001000
+            ctypes.windll.user32.MessageBoxW(0, "아이디 및 비밀번호가 틀렸습니다.", "알림", MB_SYSTEMMODAL)
+            print(userId)
+            return redirect(url_for('login_proc'))
 
     return render_template('login_page/login_page.html')
 
