@@ -1,6 +1,7 @@
 a {
     text-decoration: none;
 }
+
 header {
     background-color: white;
     width: 100%;
@@ -15,6 +16,7 @@ header {
     margin-left: 750px;
 
 }
+
 .search input {
     width: 80%;
     height: 30px;
@@ -43,33 +45,16 @@ header {
 .d-flex {
     width: 500px;
 }
-/*.profileBox {*/
-/*    border: 1px solid black;*/
-/*    border-radius: 5px;*/
-/*    width: 183px;*/
-/*    height: 200px;*/
 
-/*}*/
-/*.profileBox > img {*/
-/*    width: 180px;*/
-/*    height: 100px;*/
-/*}*/
-/*.profileBox > button {*/
-/*    margin-left: auto;*/
-/*}*/
-
-.menuBox{
+.profile_category_box{
     margin-top: 20px;
     margin-left: 20px;
-
     position: fixed;
     float: left;
-
-
-
     height: 700px;
 }
-.card {
+
+.profile_card {
     width: 200px;
     height: 250px;
     margin-bottom: 20px;
@@ -89,6 +74,7 @@ header {
 .card-title {
     text-align: center;
 }
+
 .cardBtn {
     display: flex;
     flex-direction: column;
@@ -100,32 +86,31 @@ header {
 #btn {
     margin-bottom: 10px;
 }
-#categoryBox {
+
+#category_card {
 
     width: 200px;
     height: 300px;
 }
-#categoryBox h2 {
+
+#category_card h2 {
     margin-left: 50px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-#categoryBox ul li {
-
-
+#category_card ul li {
     list-style: none;
     line-height: 30px;
     text-decoration: none;
 }
+
 .gory {
     font-weight: bold;
     font-size: 15px;
     padding-top: 8px;
 
-
     margin-bottom: 10px;
-
     text-align: center;
 
     height: 50px;
@@ -136,45 +121,38 @@ header {
 .gory:hover {
     border: 2px solid lightgrey;
 }
-.mainBox {
+
+.feed_card {
     margin: 100px auto 0 auto;
     width: 1000px;
     height: 500px;
-
     padding: 20px;
-
-
 
     border: 1px solid lightgrey;
     border-radius: 20px;
 }
 
-.mainBox:hover {
+.feed_card:hover {
     box-shadow: 5px 5px gray;
 }
 
-.mainBox > h2 {
+.feed_card > h2 {
     font-weight: bold;
 
 }
-.mainBox > h5 {
+.feed_card > h5 {
     float: left;
 }
 
-.mainBox > h6 {
+.feed_card > h6 {
     float: right;
     margin-left: 20px;
 }
-
-
 
 .bodyBox {
     height: 320px;
     width: 950px;
     margin: 0 auto 0 auto;
-
-
-
 
     overflow:hidden;
     text-overflow: ellipsis;
@@ -184,10 +162,9 @@ header {
 
     line-height: 1.8em;
     max-height: 30em;
-
     white-space: pre-line;
-
 }
+
 .likeBox {
     background-color: #E0FFFF;
 
@@ -196,7 +173,6 @@ header {
 
     height: 30px;
     width: 100px;
-
     text-align: center;
     margin: 20px 0 0 10px;
     padding-top: 2px;

@@ -10,7 +10,7 @@ function feed_box() {
         url: '/main/feed',
         date: {},
         success: function (response) {
-            $('#allBox').empty()
+            $('#all_feed_box').empty()
             let rows = response['feeds']
             for(let i = 0; i < rows.length; i++) {
                 let title =rows[i]['title']
@@ -24,7 +24,7 @@ function feed_box() {
                 let current = rows[i]['current']
                 let dead = rows[i]['dead']
 
-                let temp_html = `<div class="mainBox" style=" cursor: pointer;" onclick="location.href='#';">
+                let temp_html = `<div class="feed_card" style=" cursor: pointer;" onclick="location.href='#';">
                                     <h2>${title}</h2>
                                     <h5>ID: ${user_id}</h5>
                                     <h6>작성일: ${date}</h6>
@@ -54,7 +54,7 @@ function feed_box() {
                                         현재 입찰가격: ${price}원
                                     </div>
                                 </div> </br>`
-                $('#allBox').prepend(temp_html)
+                $('#all_feed_box').prepend(temp_html)
 
             }
         }
@@ -67,7 +67,7 @@ function feed_box_it() {
         url: '/main/IT',
         date: {},
         success: function (response) {
-            $('#allBox').empty()
+            $('#all_feed_box').empty()
             let rows = response['feeds']
             for(let i = 0; i < rows.length; i++) {
                 let title =rows[i]['title']
@@ -81,7 +81,7 @@ function feed_box_it() {
                 let current = rows[i]['current']
                 let dead = rows[i]['dead']
 
-                let temp_html = `<div class="mainBox" style=" cursor: pointer;" onclick="location.href='#';">
+                let temp_html = `<div class="feed_card" style=" cursor: pointer;" onclick="location.href='#';">
                                     <h2>${title}</h2>
                                     <h5>ID: ${user_id}</h5>
                                     <h6>작성일: ${date}</h6>
@@ -111,7 +111,7 @@ function feed_box_it() {
                                         현재 입찰가격: ${price}원
                                     </div>
                                 </div> </br>`
-                $('#allBox').prepend(temp_html)
+                $('#all_feed_box').prepend(temp_html)
 
             }
         }
@@ -124,7 +124,7 @@ function feed_box_electron() {
         url: '/main/electron',
         date: {},
         success: function (response) {
-            $('#allBox').empty()
+            $('#all_feed_box').empty()
             let rows = response['feeds']
             for(let i = 0; i < rows.length; i++) {
                 let title =rows[i]['title']
@@ -138,7 +138,7 @@ function feed_box_electron() {
                 let current = rows[i]['current']
                 let dead = rows[i]['dead']
 
-                let temp_html = `<div class="mainBox" style=" cursor: pointer;" onclick="location.href='#';">
+                let temp_html = `<div class="feed_card" style=" cursor: pointer;" onclick="location.href='#';">
                                     <h2>${title}</h2>
                                     <h5>ID: ${user_id}</h5>
                                     <h6>작성일: ${date}</h6>
@@ -168,7 +168,7 @@ function feed_box_electron() {
                                         현재 입찰가격: ${price}원
                                     </div>
                                 </div> </br>`
-                $('#allBox').prepend(temp_html)
+                $('#all_feed_box').prepend(temp_html)
 
             }
         }
@@ -181,7 +181,7 @@ function feed_box_life() {
         url: '/main/life',
         date: {},
         success: function (response) {
-            $('#allBox').empty()
+            $('#all_feed_box').empty()
             let rows = response['feeds']
             for(let i = 0; i < rows.length; i++) {
                 let title =rows[i]['title']
@@ -195,7 +195,7 @@ function feed_box_life() {
                 let current = rows[i]['current']
                 let dead = rows[i]['dead']
 
-                let temp_html = `<div class="mainBox" style=" cursor: pointer;" onclick="location.href='#';">
+                let temp_html = `<div class="feed_card" style=" cursor: pointer;" onclick="location.href='#';">
                                     <h2>${title}</h2>
                                     <h5>ID: ${user_id}</h5>
                                     <h6>작성일: ${date}</h6>
@@ -225,7 +225,7 @@ function feed_box_life() {
                                         현재 입찰가격: ${price}원
                                     </div>
                                 </div> </br>`
-                $('#allBox').prepend(temp_html)
+                $('#all_feed_box').prepend(temp_html)
 
             }
         }
