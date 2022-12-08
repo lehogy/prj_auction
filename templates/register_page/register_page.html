@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" type="text/css" href = "../../static/css/register_page.css">
 
-<!--    <script type="text/javascript" src="../static/register_page.js"></script>-->
+    <script type="text/javascript" src="../../static/js/register_page.js"></script>
 
 
 
@@ -25,7 +25,7 @@
             <h1>회원가입</h1>
             <hr>
             <label for="id"><b>아이디</b></label>
-            <input type="text" placeholder="Enter Id" name="Id" required>
+            <input type="text" placeholder="Enter Id" name="Id" id="dp" required> <button type="submit" class="dp_btn" onclick="duplication()">중복확인</button>
             <p><span class="error_next_box green" id="idMsg" style="" aria-live="assertive">멋진 아이디네요!</span></p>
 
             <label for="name"><b>이름</b></label>

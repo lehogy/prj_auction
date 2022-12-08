@@ -110,3 +110,7 @@ hr {
     line-height: 14px;
     color: red;
 }
+
+.dp_btn {
+    width: 200px;
+}

@@ -58,6 +58,7 @@ def register():
         if pw != pwr:
             ctypes.windll.user32.MessageBoxW(0, "비밀번호를 제대로 확인하세요.", "알림", 0)
             return redirect(url_for('register'))
+
         else:
             sql = """
             INSERT INTO sign_up VALUES(
@@ -82,6 +83,21 @@ def register():
     return render_template('register_page/register_page.html')
 
 
+# 회원가입 페이지 아이디 중복확인 GET
+@app.route('/register_page.html/register/duplicate', methods=['GET'])
+def duplicate():
+    print("aaaaaaa")
+    sql = "SELECT user_id FROM sign_up"
+    cursor.execute(sql)
+    dup = cursor.fetchall()
+    # for dups in dup:
+    #     dupc = dups
+
+    print(dup)
+
+    return jsonify({'dpc': dup})
+
+
 # 메인페이지
 @app.route('/main', methods=['GET', 'POST'])
 def main():
@@ -96,6 +112,7 @@ def feed_box_get():
     sql = "SELECT * FROM feed"
     cursor.execute(sql)
     data = cursor.fetchall()
+    print(data)
     return jsonify({'feeds': data})
 
 
